@@ -37,31 +37,20 @@ app.get('/api/players',async (req,res)=>{
       }
     });
 
-    app.post('/api/players',async(req,res)=>{
-
-        const {name,jersey,position} = req.body
-        try {
-            const user = await Player.create({name,jersey,position})
-        
-            return res.json(user)
-          } catch (err) {
-            console.log(err)
-            return res.status(500).json(err)
-          }
-        });
-        app.put('/api/players/:playerId',async (req,res)=>{
+    
+        app.put('/api/players/playerId',async (req,res)=>{
             const playerId = req.params.playerId
             const {name,jersey,position} = req.body
         
             try {
         
-                const user = await Player.findOne({
+                const newUser = await Player.update({
                     where: { id:playerId}
                   })
           
-              user.name = name
-              user.jersey = jersey 
-              user.position = position
+              newUser.name = name
+              newUser.jersey = jersey 
+              newUser.position = position
               
           
               await user.save()
