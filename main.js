@@ -34,11 +34,7 @@ app.get('/api/players', check('q').escape(), async (req,res) => {
   let offset =   Number(req.query.offset) || 0;
   let page =  req.query.offset || 0;
   let limit = Number(req.query.limit) || 5;
-  if(req.query.sortCol === undefined){
-        sortCol = 'id'
-    }else{
-        sortCol = req.query.sortCol
-    }
+
 
   const allPlayers = await Player.findAndCountAll({
       where:{
@@ -53,7 +49,7 @@ app.get('/api/players', check('q').escape(), async (req,res) => {
       limit:limit
   })
   
- 
+  
   const total = allPlayers.count
     const result = allPlayers.rows.map(p=>{
         return {

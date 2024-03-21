@@ -19,7 +19,7 @@ Content-Type: application/json; charset=utf-8
 }
 
 ### UPDATE
-PUT http://localhost:3000/api/players/9
+PUT http://localhost:3000/api/players/60
 Content-Type: application/json; charset=utf-8
 
 {
@@ -30,6 +30,6 @@ Content-Type: application/json; charset=utf-8
 }
 
 ### DELETE
-DELETE  http://localhost:3000/api/players/39
+DELETE  http://localhost:3000/api/players/45
 Content-Type: application/json; charset=utf-8
 
